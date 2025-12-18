@@ -122,10 +122,22 @@ export default function HeroAscii() {
 
   return (
     <main className="relative min-h-screen overflow-hidden bg-black">
+      {/* Background GIF - only on black background */}
+      <div 
+        className="absolute inset-0 w-full h-full bg-black z-0"
+        style={{
+          backgroundImage: 'url(/prism.gif)',
+          backgroundSize: '60%',
+          backgroundPosition: 'right center',
+          backgroundRepeat: 'no-repeat',
+          opacity: 0.3
+        }}
+      />
+      
       {/* Vitruvian man animation - hidden on mobile */}
       <div 
         ref={containerRef}
-        className="absolute inset-0 w-full h-full hidden lg:block"
+        className="absolute inset-0 w-full h-full hidden lg:block z-10"
       >
         {isVisible && (
           <div 
@@ -141,7 +153,7 @@ export default function HeroAscii() {
       </div>
 
       {/* Mobile stars background */}
-      <div className="absolute inset-0 w-full h-full lg:hidden stars-bg"></div>
+      <div className="absolute inset-0 w-full h-full lg:hidden stars-bg z-10"></div>
 
       {/* Corner Frame Accents */}
       <div className="absolute top-0 left-0 w-8 h-8 lg:w-12 lg:h-12 border-t-2 border-l-2 border-white/30 z-20"></div>

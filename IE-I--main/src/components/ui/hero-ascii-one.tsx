@@ -135,23 +135,17 @@ export default function HeroAsciiOne() {
 
   return (
     <main className="relative min-h-screen overflow-hidden bg-black">
-      {/* Background Animation */}
+      {/* Background GIF - positioned to the left */}
       <div 
-        ref={containerRef}
-        className="absolute inset-0 w-full h-full hidden lg:block z-10 bg-black"
-      >
-        {isVisible && (
-          <div 
-            data-us-project="OMzqyUv6M3kSnv0JeAtC" 
-            style={{ width: '100%', height: '100%', minHeight: '100vh' }}
-          />
-        )}
-        {isLoading && isVisible && (
-          <div className="absolute inset-0 flex items-center justify-center">
-            <div className="w-8 h-8 border-2 border-white/30 border-t-white animate-spin rounded-full"></div>
-          </div>
-        )}
-      </div>
+        className="absolute inset-0 w-full h-full z-0"
+        style={{
+          backgroundImage: 'url(/astro.gif)',
+          backgroundSize: '50%',
+          backgroundPosition: 'left center',
+          backgroundRepeat: 'no-repeat',
+          opacity: 0.3
+        }}
+      />
 
       {/* Corner Frame Accents */}
       <div className="absolute top-0 left-0 w-8 h-8 lg:w-12 lg:h-12 border-t-2 border-l-2 border-white/30 z-20"></div>
@@ -174,7 +168,35 @@ export default function HeroAsciiOne() {
             <div className="relative">
               <div className="hidden lg:block absolute -right-3 top-0 bottom-0 w-1 dither-pattern opacity-40"></div>
               <h1 className="text-2xl lg:text-5xl font-bold text-white mb-3 lg:mb-4 leading-tight font-mono tracking-wider lg:-ml-[5%]" style={{ letterSpacing: '0.1em' }}>
-                INSTITUTION OF ENGINEERS (INDIA)
+                {'INSTITUTION OF ENGINEERS '.split('').map((char, index) => (
+                  <span
+                    key={index}
+                    className="animate-text-reveal inline-block"
+                    style={{
+                      animationDelay: `${index * 0.05}s`,
+                      animationFillMode: 'both'
+                    }}
+                  >
+                    {char === ' ' ? '\u00A0' : char}
+                  </span>
+                ))}
+                <span className="inline-block whitespace-nowrap">
+                  {'(INDIA)'.split('').map((char, index) => {
+                    const baseIndex = 'INSTITUTION OF ENGINEERS '.length;
+                    return (
+                      <span
+                        key={baseIndex + index}
+                        className="animate-text-reveal inline-block"
+                        style={{
+                          animationDelay: `${(baseIndex + index) * 0.05}s`,
+                          animationFillMode: 'both'
+                        }}
+                      >
+                        {char}
+                      </span>
+                    );
+                  })}
+                </span>
               </h1>
             </div>
 

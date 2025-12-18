@@ -71,7 +71,37 @@ export default function EventsPage() {
           <h1 className="font-semibold text-4xl md:text-5xl lg:text-7xl whitespace-pre-wrap">
             <span className="italic text-3xl md:text-4xl lg:text-6xl font-thin text-primary-foreground">IE(I) Events & Activities</span>
             <br />
-            <span className="text-primary-foreground">Connecting Engineers, Building Futures</span>
+            <span className="text-primary-foreground">
+              {'Connecting Engineers, Building '.split('').map((char, index) => (
+                <span
+                  key={index}
+                  className="animate-text-reveal inline-block"
+                  style={{
+                    animationDelay: `${index * 0.05}s`,
+                    animationFillMode: 'both'
+                  }}
+                >
+                  {char === ' ' ? '\u00A0' : char}
+                </span>
+              ))}
+              <span className="inline-block whitespace-nowrap">
+                {'Futures'.split('').map((char, index) => {
+                  const baseIndex = 'Connecting Engineers, Building '.length;
+                  return (
+                    <span
+                      key={baseIndex + index}
+                      className="animate-text-reveal inline-block"
+                      style={{
+                        animationDelay: `${(baseIndex + index) * 0.05}s`,
+                        animationFillMode: 'both'
+                      }}
+                    >
+                      {char}
+                    </span>
+                  );
+                })}
+              </span>
+            </span>
           </h1>
           <p className="text-sm md:text-base text-primary-foreground/60">
             Workshops, Seminars, Conventions, Technical Sessions

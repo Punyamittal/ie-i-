@@ -93,6 +93,17 @@ export default function MinimalHero() {
 
   return (
     <section className="minimal-root">
+      {/* Background GIF - only on black background */}
+      <div 
+        className="absolute inset-0 w-full h-full z-0"
+        style={{
+          backgroundImage: 'url(/astro.gif)',
+          backgroundSize: '60%',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat',
+          opacity: 0.3
+        }}
+      />
       <style>{`
 @import url('https://fonts.cdnfonts.com/css/hubot-sans');
 
