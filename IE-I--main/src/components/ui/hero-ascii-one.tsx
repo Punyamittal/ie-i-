@@ -140,8 +140,8 @@ export default function HeroAsciiOne() {
         className="absolute inset-0 w-full h-full z-0"
         style={{
           backgroundImage: 'url(/astro.gif)',
-          backgroundSize: '50%',
-          backgroundPosition: 'left center',
+          backgroundSize: '40%',
+          backgroundPosition: '10% 60%',
           backgroundRepeat: 'no-repeat',
           opacity: 0.3
         }}
@@ -154,7 +154,7 @@ export default function HeroAsciiOne() {
       <div className="absolute right-0 w-8 h-8 lg:w-12 lg:h-12 border-b-2 border-r-2 border-white/30 z-20" style={{ bottom: '5vh' }}></div>
 
       {/* CTA Content */}
-      <div className="relative z-10 flex min-h-screen items-center justify-end pt-16 lg:pt-0" style={{ marginTop: '5vh' }}>
+      <div className="relative z-10 flex min-h-screen items-center justify-end pt-20 lg:pt-0" style={{ marginTop: '6vh' }}>
         <div className="w-full lg:w-1/2 px-6 lg:px-16 lg:pr-[10%]">
           <div className="max-w-lg relative lg:ml-auto">
             {/* Top decorative line */}

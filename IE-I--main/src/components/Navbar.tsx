@@ -79,17 +79,17 @@ export function Navbar() {
         isHidden ? '-translate-y-full' : 'translate-y-0'
       )}
     >
-      <nav className="container mx-auto px-6 py-4">
+      <nav className="container mx-auto px-6 py-1">
         <div className="flex items-center justify-between md:justify-evenly w-full relative">
           {/* Logo */}
           <Link
             to="/"
-            className="flex items-center gap-3 transition-opacity hover:opacity-80 flex-shrink-0"
+            className="flex items-center gap-2 transition-opacity hover:opacity-80 flex-shrink-0"
           >
             <img 
               src="/image.png" 
               alt="IE(I) Logo" 
-              className="h-16 w-auto object-contain"
+              className="h-28 w-auto object-contain"
             />
             <span className="text-xl font-semibold tracking-tight text-white hidden sm:block">
               IE(I)
