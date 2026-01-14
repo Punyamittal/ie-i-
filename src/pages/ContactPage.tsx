@@ -1,10 +1,11 @@
 import { useState, useRef } from 'react';
 import { Layout } from '@/components/Layout';
 import { useScrollReveal } from '@/hooks/useScrollReveal';
-import { Mail, Linkedin, MapPin, Send } from 'lucide-react';
+import { Mail, Linkedin, Send } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { useToast } from '@/hooks/use-toast';
 import RainingLetters from '@/components/ui/modern-animated-hero-section';
+import supabase from '@/lib/supabase';
 
 const contactInfo = [
   { 
@@ -18,11 +19,6 @@ const contactInfo = [
     label: 'LinkedIn', 
     value: 'Institution of Engineers (India) | VIT Chennai',
     link: 'https://www.linkedin.com/company/institution-of-engineers-india-vit-chennai/'
-  },
-  { 
-    icon: MapPin, 
-    label: 'Address', 
-    value: 'Vellore Institute of Technology, Vandalur-Kelambakkam Road, Chennai-600127, Tamil Nadu, India'
   },
 ];
 
@@ -40,16 +36,35 @@ export default function ContactPage() {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+    try {
+      const { error } = await supabase
+        .from('contact_messages')
+        .insert({
+          name: formData.name,
+          email: formData.email,
+          message: formData.message
+        });
 
-    toast({
-      title: 'Message Sent',
-      description: 'Thank you for reaching out. We will get back to you soon.',
-    });
+      if (error) {
+        throw error;
+      }
 
-    setFormData({ name: '', email: '', message: '' });
-    setIsSubmitting(false);
+      toast({
+        title: 'Message Sent',
+        description: 'Thank you for reaching out. We will get back to you soon.',
+      });
+
+      setFormData({ name: '', email: '', message: '' });
+    } catch (error: any) {
+      console.error('Error sending message:', error);
+      toast({
+        title: 'Message Not Sent',
+        description: error.message || 'Failed to send message. Please try again.',
+        variant: 'destructive',
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleRipple = (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -203,23 +218,6 @@ export default function ContactPage() {
                   >
                     sandhya.p@vit.ac.in
                   </a>
-                </div>
-              </div>
-
-              {/* Map */}
-              <div className="mt-8">
-                <h3 className="text-lg font-semibold mb-4">Location</h3>
-                <div className="aspect-video bg-secondary border border-border overflow-hidden">
-                  <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3888.1234567890!2d80.1234567890!3d12.1234567890!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a525c1234567890%3A0x1234567890abcdef!2sVellore%20Institute%20of%20Technology%2C%20Vandalur-Kelambakkam%20Road%2C%20Chennai%2C%20Tamil%20Nadu%20600127!5e0!3m2!1sen!2sin!4v1234567890123!5m2!1sen!2sin"
-                    width="100%"
-                    height="100%"
-                    style={{ border: 0, filter: 'grayscale(100%)' }}
-                    allowFullScreen
-                    loading="lazy"
-                    referrerPolicy="no-referrer-when-downgrade"
-                    title="VIT Chennai Location"
-                  />
                 </div>
               </div>
             </div>

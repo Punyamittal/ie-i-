@@ -6,6 +6,9 @@ declare global {
       isInitialized: boolean;
       init?: () => void;
     };
+    supabase?: {
+      createClient: (url: string, key: string) => any;
+    };
   }
 }
 

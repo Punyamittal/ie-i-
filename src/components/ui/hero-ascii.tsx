@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState, useCallback } from 'react';
 import './hero-ascii.css';
 import { loadUnicornStudioScript } from '@/lib/unicornStudioLoader';
+import TextType from './TextType';
 
 export default function HeroAscii() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -175,9 +176,29 @@ export default function HeroAscii() {
             <div className="relative">
               <div className="hidden lg:block absolute -left-3 top-0 bottom-0 w-1 dither-pattern opacity-40"></div>
               <h1 className="text-2xl lg:text-5xl font-bold text-white mb-3 lg:mb-4 leading-tight font-mono tracking-wider" style={{ letterSpacing: '0.1em' }}>
-                PERFECT
+                <span className="block">
+                  <TextType 
+                    text={["PERFECT"]}
+                    typingSpeed={75}
+                    pauseDuration={500}
+                    showCursor={false}
+                    loop={false}
+                    as="span"
+                    className="text-white"
+                  />
+                </span>
                 <span className="block text-white mt-1 lg:mt-2 opacity-90">
-                  PROPORTIONS
+                  <TextType 
+                    text={["PROPORTIONS"]}
+                    typingSpeed={75}
+                    initialDelay={800}
+                    pauseDuration={1500}
+                    showCursor={true}
+                    cursorCharacter="|"
+                    loop={false}
+                    as="span"
+                    className="text-white"
+                  />
                 </span>
               </h1>
             </div>
@@ -201,18 +222,6 @@ export default function HeroAscii() {
               </div>
             </div>
 
-            {/* Buttons with technical accents */}
-            <div className="flex flex-col lg:flex-row gap-3 lg:gap-4">
-              <button className="relative px-5 lg:px-6 py-2 lg:py-2.5 bg-transparent text-white font-mono text-xs lg:text-sm border border-white hover:bg-white hover:text-black transition-all duration-200 group">
-                <span className="hidden lg:block absolute -top-1 -left-1 w-2 h-2 border-t border-l border-white opacity-0 group-hover:opacity-100 transition-opacity"></span>
-                <span className="hidden lg:block absolute -bottom-1 -right-1 w-2 h-2 border-b border-r border-white opacity-0 group-hover:opacity-100 transition-opacity"></span>
-                GET STARTED
-              </button>
-              
-              <button className="relative px-5 lg:px-6 py-2 lg:py-2.5 bg-transparent border border-white text-white font-mono text-xs lg:text-sm hover:bg-white hover:text-black transition-all duration-200" style={{ borderWidth: '1px' }}>
-                LEARN MORE
-              </button>
-            </div>
 
             {/* Bottom technical notation - desktop only */}
             <div className="hidden lg:flex items-center gap-2 mt-6 opacity-40">

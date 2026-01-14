@@ -137,11 +137,9 @@ export default function HeroAsciiOne() {
     <main className="relative min-h-screen overflow-hidden bg-black">
       {/* Background GIF - positioned to the left */}
       <div 
-        className="absolute inset-0 w-full h-full z-0"
+        className="absolute inset-0 w-full h-full z-0 hero-gif-bg"
         style={{
           backgroundImage: 'url(/astro.gif)',
-          backgroundSize: '40%',
-          backgroundPosition: '10% 60%',
           backgroundRepeat: 'no-repeat',
           opacity: 0.3
         }}

@@ -241,9 +241,6 @@ export default function MinimalHero() {
         <Link className="brand" to="/">
           IE(I)
         </Link>
-        <Link className="cta" to="/contact">
-          Contact
-        </Link>
       </header>
 
       {/* Particles */}

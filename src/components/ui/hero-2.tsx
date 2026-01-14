@@ -1,5 +1,6 @@
 import { cn } from "@/lib/utils";
 import { Link } from "react-router-dom";
+import TextType from "./TextType";
 
 export const Component = () => {
   return (
@@ -11,7 +12,16 @@ export const Component = () => {
               <div className="lg:w-2/3">
                 <p className="text-sm font-normal tracking-widest text-gray-300 uppercase">A Visual Archive of Engineering Excellence</p>
                 <h1 className="mt-6 text-4xl font-normal text-white sm:mt-10 sm:text-5xl lg:text-6xl xl:text-8xl">
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-purple-500">IE(I) Gallery</span> Collection
+                  <TextType 
+                    text={["IE(I) Gallery Collection"]}
+                    typingSpeed={75}
+                    pauseDuration={1500}
+                    showCursor={true}
+                    cursorCharacter="|"
+                    loop={false}
+                    as="span"
+                    textClassName="text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-purple-500"
+                  />
                 </h1>
                 <p className="max-w-lg mt-4 text-xl font-normal text-gray-400 sm:mt-8">
                   Explore our visual archive showcasing workshops, seminars, conventions, industrial visits, and student activities that define engineering excellence.

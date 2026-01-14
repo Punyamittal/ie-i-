@@ -7,6 +7,7 @@ export interface ProfileCardProps {
   tags?: string[];
   imageUrl?: string;
   imageAlt?: string;
+  linkedinUrl?: string;
   className?: string;
 }
 
@@ -17,6 +18,7 @@ export function ProfileCard({
   tags = [],
   imageUrl,
   imageAlt,
+  linkedinUrl,
   className,
 }: ProfileCardProps) {
   // Generate gradient based on name initials for consistent placeholder
@@ -31,13 +33,14 @@ export function ProfileCard({
 
   const gradient = getGradientColors(name);
 
-  return (
+  const cardContent = (
     <div
       className={cn(
         'group relative flex flex-col h-full min-h-[500px]',
         'bg-card border border-border/50 rounded-lg',
         'overflow-hidden',
         'transition-all duration-300 ease-out',
+        linkedinUrl ? 'cursor-pointer' : '',
         'hover:-translate-y-2 hover:shadow-2xl hover:shadow-primary/20',
         'hover:border-primary/50',
         'backdrop-blur-sm',
@@ -50,7 +53,8 @@ export function ProfileCard({
           <img
             src={imageUrl}
             alt={imageAlt || name}
-            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+            className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
+            style={{ objectPosition: 'center center' }}
           />
         ) : (
           <div
@@ -74,8 +78,6 @@ export function ProfileCard({
             </div>
           </div>
         )}
-        {/* Subtle gradient overlay at bottom of image */}
-        <div className="absolute inset-0 bg-gradient-to-t from-card/80 via-transparent to-transparent pointer-events-none" />
       </div>
 
       {/* Content Section */}
@@ -135,4 +137,20 @@ export function ProfileCard({
       />
     </div>
   );
+
+  // Wrap in link if LinkedIn URL is provided
+  if (linkedinUrl) {
+    return (
+      <a
+        href={linkedinUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="block h-full"
+      >
+        {cardContent}
+      </a>
+    );
+  }
+
+  return cardContent;
 }

@@ -74,24 +74,25 @@ export function Navbar() {
     <header
       className={cn(
         'fixed top-0 left-0 right-0 z-50 transition-transform duration-200 ease-in-out border-b border-white/20',
-        'bg-transparent',
+        'bg-transparent md:bg-transparent',
+        isMobileMenuOpen ? 'bg-black/95 backdrop-blur-sm' : '',
         isVisible ? 'opacity-100' : 'opacity-0',
         isHidden ? '-translate-y-full' : 'translate-y-0'
       )}
     >
-      <nav className="container mx-auto px-6 py-1">
+      <nav className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between md:justify-evenly w-full relative">
           {/* Logo */}
           <Link
             to="/"
-            className="flex items-center gap-2 transition-opacity hover:opacity-80 flex-shrink-0"
+            className="flex items-center gap-2 transition-opacity hover:opacity-80 flex-shrink-0 py-2"
           >
             <img 
-              src="/image.png" 
+              src="/l2.png" 
               alt="IE(I) Logo" 
-              className="h-28 w-auto object-contain"
+              className="h-14 max-h-14 w-auto max-w-[140px] object-contain"
             />
-            <span className="text-xl font-semibold tracking-tight text-white hidden sm:block">
+            <span className="text-2xl font-semibold tracking-tight text-white hidden sm:block">
               IE(I)
             </span>
           </Link>
@@ -131,7 +132,7 @@ export function Navbar() {
             isMobileMenuOpen ? 'max-h-96 opacity-100 mt-4' : 'max-h-0 opacity-0'
           )}
         >
-          <ul className="flex flex-col gap-4 py-4 border-t border-white/20">
+          <ul className="flex flex-col gap-4 py-4 border-t border-white/20 bg-black/80 backdrop-blur-sm rounded-b-lg">
             {navItems.map((item, index) => {
               const isActive = location.pathname === item.path || 
                 (item.path !== '/' && location.pathname.startsWith(item.path));
@@ -151,8 +152,8 @@ export function Navbar() {
                     className={cn(
                       'block text-sm font-medium tracking-wide uppercase transition-colors relative pl-4 py-2',
                       isActive
-                        ? 'text-white'
-                        : 'text-white/70 hover:text-white'
+                        ? 'text-white font-semibold'
+                        : 'text-gray-200 hover:text-white'
                     )}
                   >
                     {isActive && (

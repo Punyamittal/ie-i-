@@ -4,6 +4,7 @@ import { useScrollReveal, useScrollRevealMultiple } from '@/hooks/useScrollRevea
 import { Target, Eye, Award, Lightbulb, Users, Rocket } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import RotatingEarth from '@/components/ui/wireframe-dotted-globe';
+import DecryptedText from '@/components/ui/DecryptedText';
 
 const objectives = [
   'Promote technical excellence and innovation among students',
@@ -21,6 +22,7 @@ interface TeamMember {
   description?: string;
   tags?: string[];
   imageUrl?: string;
+  linkedinUrl?: string;
 }
 
 // All team members in a single array, ordered as requested:
@@ -36,6 +38,7 @@ const allTeamMembers: TeamMember[] = [
     department: 'Faculty',
     description: 'Facilitating communication between students and faculty.',
     tags: ['Faculty Relations', 'Mentorship', 'Guidance'],
+    imageUrl: '/faculty c.png',
   },
   { 
     name: 'P. Sandhya', 
@@ -43,6 +46,7 @@ const allTeamMembers: TeamMember[] = [
     department: 'Faculty',
     description: 'Supporting academic initiatives and student development.',
     tags: ['Academic Support', 'Mentorship', 'Development'],
+    imageUrl: '/facc2.png',
   },
   // Chairperson and Vice Chairperson
   { 
@@ -50,12 +54,16 @@ const allTeamMembers: TeamMember[] = [
     role: 'Chairperson',
     description: 'Leading the organization with vision and strategic direction.',
     tags: ['Leadership', 'Strategy', 'Management'],
+    imageUrl: '/chairperson.png',
+    linkedinUrl: 'https://www.linkedin.com/in/ayushdevai/',
   },
   { 
-    name: 'Amritesh S. M.', 
+    name: 'Amrithesh S Menon', 
     role: 'Vice Chairperson',
     description: 'Supporting organizational goals and coordinating key initiatives.',
     tags: ['Coordination', 'Leadership'],
+    imageUrl: '/am.png',
+    linkedinUrl: 'https://www.linkedin.com/in/amrithesh-s-menon-1a2b86277/',
   },
   // Secretary
   { 
@@ -63,6 +71,8 @@ const allTeamMembers: TeamMember[] = [
     role: 'Secretary',
     description: 'Managing documentation and administrative operations.',
     tags: ['Administration', 'Documentation'],
+    imageUrl: '/pm.jpeg',
+    linkedinUrl: 'https://www.linkedin.com/in/punyamittal/',
   },
   { 
     name: 'Mainak M.', 
@@ -75,6 +85,8 @@ const allTeamMembers: TeamMember[] = [
     role: 'Secretary',
     description: 'Coordinating meetings and maintaining organizational records.',
     tags: ['Coordination', 'Records'],
+    imageUrl: '/s1.png',
+    linkedinUrl: 'https://www.linkedin.com/in/aastha-gupta2785/',
   },
   // Rest of the team
   { 
@@ -82,6 +94,8 @@ const allTeamMembers: TeamMember[] = [
     role: 'Treasurer',
     description: 'Managing finances and budget allocation for club activities.',
     tags: ['Finance', 'Budget', 'Management'],
+    imageUrl: '/tre.png',
+    linkedinUrl: 'https://www.linkedin.com/in/giri-dabbara-35580a31b/',
   },
   { 
     name: 'Sahil Poply', 
@@ -89,6 +103,8 @@ const allTeamMembers: TeamMember[] = [
     department: 'Technical',
     description: 'Leading technical initiatives and innovation projects.',
     tags: ['Technology', 'Innovation', 'Development'],
+    imageUrl: '/spp.png',
+    linkedinUrl: 'https://www.linkedin.com/in/sahil-poply-6150b1324/',
   },
   { 
     name: 'Shreyas Kumar', 
@@ -96,6 +112,8 @@ const allTeamMembers: TeamMember[] = [
     department: 'Technical',
     description: 'Driving technical excellence and knowledge sharing.',
     tags: ['Technology', 'Engineering', 'Mentorship'],
+    imageUrl: '/techh.png',
+    linkedinUrl: 'https://www.linkedin.com/in/shkshreyas/',
   },
   { 
     name: 'Garv Bansal', 
@@ -103,6 +121,8 @@ const allTeamMembers: TeamMember[] = [
     department: 'Events',
     description: 'Planning and executing major club events and competitions.',
     tags: ['Event Planning', 'Management', 'Coordination'],
+    imageUrl: '/gb.png',
+    linkedinUrl: 'https://www.linkedin.com/in/garv-bansal-697b3227a/',
   },
   { 
     name: 'Vaibhav Dwivedi', 
@@ -110,6 +130,8 @@ const allTeamMembers: TeamMember[] = [
     department: 'Events',
     description: 'Organizing workshops, seminars, and networking events.',
     tags: ['Events', 'Workshops', 'Networking'],
+    imageUrl: '/vdd.png',
+    linkedinUrl: 'https://www.linkedin.com/search/results/all/?keywords=Vaibhav%20Dwivedi&origin=GLOBAL_SEARCH_HEADER&sid=k(W',
   },
   { 
     name: 'Ananya Sani', 
@@ -117,6 +139,8 @@ const allTeamMembers: TeamMember[] = [
     department: 'Media & Creative',
     description: 'Creating engaging content and managing digital presence.',
     tags: ['Content Creation', 'Design', 'Social Media'],
+    imageUrl: '/as.png',
+    linkedinUrl: 'https://www.linkedin.com/in/ananya-saini-788949333/',
   },
   { 
     name: 'Pushkar Singhani', 
@@ -124,6 +148,8 @@ const allTeamMembers: TeamMember[] = [
     department: 'Media & Creative',
     description: 'Designing visual assets and creative campaigns.',
     tags: ['Graphic Design', 'Creative', 'Branding'],
+    imageUrl: '/ps.png',
+    linkedinUrl: 'https://www.linkedin.com/in/pushkar-singhania-/',
   },
   { 
     name: 'Utsav Gautam', 
@@ -131,6 +157,8 @@ const allTeamMembers: TeamMember[] = [
     department: 'Logistics',
     description: 'Managing event logistics and resource allocation.',
     tags: ['Logistics', 'Operations', 'Planning'],
+    imageUrl: '/ugg.png',
+    linkedinUrl: 'https://www.linkedin.com/in/utsav-gautam-406696303/',
   },
   { 
     name: 'Vismit Bhat', 
@@ -138,6 +166,8 @@ const allTeamMembers: TeamMember[] = [
     department: 'Logistics',
     description: 'Handling publicity campaigns and outreach efforts.',
     tags: ['Publicity', 'Marketing', 'Outreach'],
+    imageUrl: '/vsm.png',
+    linkedinUrl: 'https://www.linkedin.com/in/vismit-bhat-78b60b363/',
   },
   { 
     name: 'Aryaman Kumar Singh', 
@@ -145,6 +175,8 @@ const allTeamMembers: TeamMember[] = [
     department: 'Documentation',
     description: 'Maintaining comprehensive records and documentation.',
     tags: ['Documentation', 'Records', 'Archiving'],
+    imageUrl: '/ark.png',
+    linkedinUrl: 'https://www.linkedin.com/in/aryaman-kumar-singh-2b6832317/',
   },
   { 
     name: 'Kamakshi Vashistha', 
@@ -152,6 +184,8 @@ const allTeamMembers: TeamMember[] = [
     department: 'Documentation',
     description: 'Creating and managing organizational documentation.',
     tags: ['Writing', 'Documentation', 'Content'],
+    imageUrl: '/kv.png',
+    linkedinUrl: 'https://www.linkedin.com/in/kamakshi-vashistha-3a3830366/',
   },
   { 
     name: 'Vaibhav Raj', 
@@ -159,6 +193,8 @@ const allTeamMembers: TeamMember[] = [
     department: 'Outreach',
     description: 'Building partnerships and expanding club network.',
     tags: ['Partnerships', 'Networking', 'Outreach'],
+    imageUrl: '/vr.png',
+    linkedinUrl: 'https://www.linkedin.com/in/vaibhavraj28/',
   },
   { 
     name: 'Sharanya Ahire', 
@@ -166,6 +202,8 @@ const allTeamMembers: TeamMember[] = [
     department: 'Outreach',
     description: 'Connecting with industry professionals and alumni.',
     tags: ['Industry Relations', 'Networking', 'Alumni'],
+    imageUrl: '/sa.png',
+    linkedinUrl: 'https://www.linkedin.com/in/sharanya-ahire-889720261/',
   },
 ];
 
@@ -199,7 +237,15 @@ export default function AboutPage() {
               )}
             >
               <h1 className="text-4xl md:text-6xl font-bold text-white tracking-tight mb-6">
-                About Us
+                <DecryptedText
+                  text="About Us"
+                  animateOn="view"
+                  revealDirection="center"
+                  speed={50}
+                  maxIterations={15}
+                  className="text-white"
+                  encryptedClassName="text-white/40"
+                />
               </h1>
               <p className="text-white/80 text-lg leading-relaxed">
                 The Institution of Engineers (India) – IE(I) is a premier professional body dedicated to
@@ -322,6 +368,7 @@ export default function AboutPage() {
                   tags={member.tags}
                   imageUrl={member.imageUrl}
                   imageAlt={`${member.name} - ${member.role}`}
+                  linkedinUrl={member.linkedinUrl}
                 />
               </div>
             ))}

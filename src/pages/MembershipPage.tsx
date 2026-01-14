@@ -24,6 +24,8 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 import MinimalHero from '@/components/ui/hero-minimalism';
+import supabase from '@/lib/supabase';
+import { useToast } from '@/hooks/use-toast';
 
 const membershipCategories = [
   {
@@ -56,6 +58,7 @@ export default function MembershipPage() {
   const { ref: categoriesRef, isVisible: categoriesVisible } = useScrollReveal();
   const { setRef: setBenefitRef, visibleItems: benefitVisible } = useScrollRevealMultiple(6);
   const { ref: formRef, isVisible: formVisible } = useScrollReveal();
+  const { toast } = useToast();
 
   const [formData, setFormData] = useState({
     fullName: '',
@@ -64,6 +67,7 @@ export default function MembershipPage() {
     phone: '',
     category: '',
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -73,10 +77,62 @@ export default function MembershipPage() {
     setFormData({ ...formData, category: value });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  // Map category values to match Supabase expectations
+  const mapCategoryToSupabase = (category: string): string => {
+    const categoryMap: { [key: string]: string } = {
+      'smie': 'Student',
+      'amie': 'Associate',
+      'mie': 'Member'
+    };
+    return categoryMap[category] || category;
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission
-    console.log('Form submitted:', formData);
+    setIsSubmitting(true);
+
+    try {
+      const insertData = {
+        full_name: formData.fullName,
+        department: formData.department,
+        email: formData.email,
+        phone: formData.phone,
+        membership_category: mapCategoryToSupabase(formData.category)
+      };
+
+      console.log('Inserting data:', insertData);
+
+      const { error } = await supabase
+        .from('membership_applications')
+        .insert(insertData);
+
+      if (error) {
+        throw error;
+      }
+
+      toast({
+        title: 'Application Submitted',
+        description: 'Your membership application has been submitted successfully! We will get back to you soon.',
+      });
+
+      // Reset form
+      setFormData({
+        fullName: '',
+        department: '',
+        email: '',
+        phone: '',
+        category: '',
+      });
+    } catch (error: any) {
+      console.error('Error submitting application:', error);
+      toast({
+        title: 'Submission Failed',
+        description: error.message || 'Failed to submit application. Please try again.',
+        variant: 'destructive',
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -152,7 +208,8 @@ export default function MembershipPage() {
         </div>
       </section>
 
-      {/* Membership Form */}
+      {/* Membership Form - Hidden for now */}
+      {false && (
       <section className="py-24 bg-background">
         <div className="container mx-auto px-6 max-w-2xl">
           <div
@@ -250,14 +307,16 @@ export default function MembershipPage() {
               <Button
                 type="submit"
                 size="lg"
-                className="w-full mt-8 transition-transform duration-300 hover:scale-[1.02]"
+                disabled={isSubmitting}
+                className="w-full mt-8 transition-transform duration-300 hover:scale-[1.02] disabled:opacity-50"
               >
-                Apply for Membership
+                {isSubmitting ? 'Submitting...' : 'Apply for Membership'}
               </Button>
             </form>
           </div>
         </div>
       </section>
+      )}
     </Layout>
   );
 }
