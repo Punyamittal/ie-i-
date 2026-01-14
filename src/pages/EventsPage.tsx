@@ -165,11 +165,11 @@ export default function EventsPage() {
                 {/* Right: Speaker Image */}
                 <div className="flex items-center justify-center lg:justify-end">
                   <div className="w-full lg:w-auto max-w-md">
-                    <div className="relative aspect-[3/4] rounded-lg overflow-hidden border border-border bg-secondary">
+                    <div className="relative rounded-lg overflow-hidden border border-border bg-secondary">
                       <img
                         src="/Inauguration Ceremony (1).png"
                         alt="Inauguration Ceremony - IE(I) VIT Chennai"
-                        className="w-full h-full object-cover"
+                        className="w-full h-auto object-contain"
                       />
                     </div>
                   </div>
