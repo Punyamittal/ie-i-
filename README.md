@@ -47,6 +47,28 @@ The development server will start at `http://127.0.0.1:5173`
 - `/src/components/ui` - UI component library
 - `/public` - Static assets
 
+## Building for Production
+
+```sh
+# Build the project
+npm run build
+
+# Preview the production build locally
+npm run preview
+```
+
+The production build will be in the `dist` directory.
+
+## Deployment
+
+See [DEPLOYMENT.md](./DEPLOYMENT.md) for detailed deployment instructions.
+
+### Quick Deploy Options:
+
+1. **Vercel** (Recommended): Connect your GitHub repo at [vercel.com](https://vercel.com)
+2. **Netlify**: Connect your GitHub repo at [netlify.com](https://netlify.com)
+3. **GitHub Pages**: Run `npm run deploy` (after setting up gh-pages)
+
 ## License
 
 This project is for The Institution of Engineers (India) - VIT Chennai Student Chapter.

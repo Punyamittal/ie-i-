@@ -100,8 +100,6 @@ export default function MembershipPage() {
         membership_category: mapCategoryToSupabase(formData.category)
       };
 
-      console.log('Inserting data:', insertData);
-
       const { error } = await supabase
         .from('membership_applications')
         .insert(insertData);
