@@ -122,7 +122,7 @@ export default function EventsPage() {
                       <Clock size={20} strokeWidth={1} className="text-foreground flex-shrink-0 mt-0.5" />
                       <div>
                         <p className="text-sm font-medium text-muted-foreground mb-1">Time</p>
-                        <p className="text-foreground font-semibold">04:00 PM – 05:00 PM</p>
+                        <p className="text-foreground font-semibold">10:30 AM – 01:30 PM</p>
                       </div>
                     </div>
 
@@ -130,7 +130,8 @@ export default function EventsPage() {
                       <MapPin size={20} strokeWidth={1} className="text-foreground flex-shrink-0 mt-0.5" />
                       <div>
                         <p className="text-sm font-medium text-muted-foreground mb-1">Venue</p>
-                        <p className="text-foreground font-semibold">Netaji Auditorium, VIT Chennai – 600127</p>
+                        <p className="text-foreground font-semibold">Mini Conference Hall, AB-1</p>
+                        <p className="text-foreground font-semibold">VIT Chennai – 600127</p>
                       </div>
                     </div>
                   </div>
@@ -143,13 +144,21 @@ export default function EventsPage() {
                         <p className="text-sm font-medium text-muted-foreground mb-2">Chief Guest & Speaker</p>
                         <p className="text-lg font-bold text-foreground mb-2">Dr. Karthikeyan S.</p>
                         <div className="text-xs text-muted-foreground space-y-1">
-                          <p>Chairman, IE(I) – CLC</p>
-                          <p>Member, Board of Studies – Anna University</p>
-                          <p>Advisor & UGC Consultant</p>
-                          <p>Member, AICTE & NBA</p>
+                          <p>Chairman IE(I), KLC</p>
+                          <p>National Council Member</p>
+                          <p>Member R&D Committee, Member</p>
+                          <p>All India Students Committee, IE(I)</p>
+                          <p>Kolkata</p>
                         </div>
                       </div>
                     </div>
+                  </div>
+
+                  {/* Audience */}
+                  <div className="pt-4 border-t border-border">
+                    <p className="text-sm font-semibold text-foreground">
+                      Open to all VIT Chennai Students
+                    </p>
                   </div>
                 </div>
 
@@ -158,8 +167,8 @@ export default function EventsPage() {
                   <div className="w-full lg:w-auto max-w-md">
                     <div className="relative aspect-[3/4] rounded-lg overflow-hidden border border-border bg-secondary">
                       <img
-                        src="/Inauguration Ceremony.png"
-                        alt="Dr. Karthikeyan S. - Chief Guest & Speaker"
+                        src="/Inauguration Ceremony (1).png"
+                        alt="Inauguration Ceremony - IE(I) VIT Chennai"
                         className="w-full h-full object-cover"
                       />
                     </div>

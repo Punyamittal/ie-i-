@@ -7,6 +7,7 @@ export default function HeroAsciiOne() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
+  const [gifStyle, setGifStyle] = useState({ backgroundSize: 'cover', backgroundPosition: 'center center' });
   const styleId = 'hero-ascii-one-styles';
   const observerRef = useRef<IntersectionObserver | null>(null);
   const hideBrandingTimeoutRef = useRef<number[]>([]);
@@ -33,6 +34,21 @@ export default function HeroAsciiOne() {
         observerRef.current.unobserve(containerRef.current);
       }
     };
+  }, []);
+
+  // Handle responsive GIF positioning
+  useEffect(() => {
+    const updateGifStyle = () => {
+      if (window.innerWidth >= 768) {
+        setGifStyle({ backgroundSize: '50%', backgroundPosition: 'left center' });
+      } else {
+        setGifStyle({ backgroundSize: 'cover', backgroundPosition: 'center center' });
+      }
+    };
+
+    updateGifStyle();
+    window.addEventListener('resize', updateGifStyle);
+    return () => window.removeEventListener('resize', updateGifStyle);
   }, []);
 
   // Optimized branding hide function
@@ -137,11 +153,12 @@ export default function HeroAsciiOne() {
     <main className="relative min-h-screen overflow-hidden bg-black">
       {/* Background GIF - positioned to the left */}
       <div 
-        className="absolute inset-0 w-full h-full z-0 hero-gif-bg"
+        className="absolute inset-0 w-full h-full z-0"
         style={{
           backgroundImage: 'url(/astro.gif)',
           backgroundRepeat: 'no-repeat',
-          opacity: 0.3
+          opacity: 0.3,
+          ...gifStyle
         }}
       />
 
