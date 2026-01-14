@@ -91,10 +91,35 @@ export function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-16 pt-8 border-t border-primary-foreground/10 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-primary-foreground/50 text-sm">
-            © {new Date().getFullYear()} The Institution of Engineers (India). All rights reserved.
-          </p>
+        <div className="mt-16 pt-8 border-t border-primary-foreground/10">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-4 mb-4">
+            <p className="text-primary-foreground/50 text-sm">
+              © {new Date().getFullYear()} The Institution of Engineers (India). All rights reserved.
+            </p>
+          </div>
+          
+          {/* Credits */}
+          <div className="flex flex-col md:flex-row items-center justify-center gap-2 text-primary-foreground/50 text-sm">
+            <span>Created by</span>
+            <a
+              href="https://www.linkedin.com/in/sahil-poply-6150b1324/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-primary-foreground/70 hover:text-primary-foreground transition-colors underline"
+            >
+              Sahil Poply
+            </a>
+            <span>and</span>
+            <a
+              href="https://www.linkedin.com/in/punyamittal/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-primary-foreground/70 hover:text-primary-foreground transition-colors underline"
+            >
+              Punya Mittal
+            </a>
+            <span>in 2025</span>
+          </div>
         </div>
       </div>
 
