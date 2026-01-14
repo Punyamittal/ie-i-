@@ -1,5 +1,9 @@
-const supabaseUrl = "https://ktmrbmjfcttzbpwfyzyg.supabase.co";
-const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imt0bXJibWpmY3R0emJwd2Z5enlnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njg0MDA2MjQsImV4cCI6MjA4Mzk3NjYyNH0.qecQEYQWLi7E9V63_Y6t3ZqjvQZs_AJl6POBuzXL9mI";
+const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
+
+if (!supabaseUrl || !supabaseKey) {
+  console.error('Missing Supabase environment variables. Please set VITE_SUPABASE_URL and VITE_SUPABASE_ANON_KEY in your .env file.');
+}
 
 if (!window.supabase) {
   console.error('Supabase client not loaded. Make sure the Supabase script is included in index.html');
