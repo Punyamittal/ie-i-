@@ -50,7 +50,7 @@ const allTeamMembers: TeamMember[] = [
   },
   // Chairperson and Vice Chairperson
   { 
-    name: 'Ayush Upadhya', 
+    name: 'Ayush Upadhyay', 
     role: 'Chairperson',
     description: 'Leading the organization with vision and strategic direction.',
     tags: ['Leadership', 'Strategy', 'Management'],
@@ -76,9 +76,10 @@ const allTeamMembers: TeamMember[] = [
   },
   { 
     name: 'Mainak M.', 
-    role: 'Secretary',
+    role: 'General Secretary',
     description: 'Overseeing organizational communications and records.',
     tags: ['Communication', 'Records'],
+    imageUrl: '/mainak.jpg',
   },
   { 
     name: 'Aastha Gupta', 
