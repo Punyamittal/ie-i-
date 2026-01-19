@@ -49,12 +49,12 @@ export default function ContactPage() {
         throw error;
       }
 
-      toast({
-        title: 'Message Sent',
-        description: 'Thank you for reaching out. We will get back to you soon.',
-      });
+    toast({
+      title: 'Message Sent',
+      description: 'Thank you for reaching out. We will get back to you soon.',
+    });
 
-      setFormData({ name: '', email: '', message: '' });
+    setFormData({ name: '', email: '', message: '' });
     } catch (error: any) {
       console.error('Error sending message:', error);
       toast({
@@ -63,7 +63,7 @@ export default function ContactPage() {
         variant: 'destructive',
       });
     } finally {
-      setIsSubmitting(false);
+    setIsSubmitting(false);
     }
   };
 
@@ -191,7 +191,7 @@ export default function ContactPage() {
                           {item.value}
                         </a>
                       ) : (
-                        <p className="text-foreground font-medium">{item.value}</p>
+                      <p className="text-foreground font-medium">{item.value}</p>
                       )}
                     </div>
                   </div>
@@ -202,14 +202,14 @@ export default function ContactPage() {
               <div className="card-mono space-y-4">
                 <h3 className="text-lg font-semibold mb-4">Faculty Coordinators</h3>
                 <div>
-                  <p className="text-foreground font-medium">S. Vigneshwari</p>
+                  <p className="text-foreground font-medium">Dr. S. Vigneshwari</p>
                   <a
                     href="mailto:s.vigneshwari@vit.ac.in"
                     className="text-sm text-muted-foreground hover:text-primary transition-colors underline"
                   >
                     s.vigneshwari@vit.ac.in
                   </a>
-                </div>
+              </div>
                 <div>
                   <p className="text-foreground font-medium">P. Sandhya</p>
                   <a

@@ -80,7 +80,7 @@ export default function EventsPage() {
                   {/* Title */}
                   <h3 className="text-2xl md:text-3xl font-bold tracking-tight text-foreground">
                     Inauguration Ceremony
-                  </h3>
+                </h3>
 
                   {/* Description */}
                   <p className="text-muted-foreground leading-relaxed">
@@ -91,7 +91,7 @@ export default function EventsPage() {
                   <div>
                     <p className="text-sm font-semibold text-foreground mb-3">
                       The session will feature insights on:
-                    </p>
+                </p>
                     <ul className="space-y-2 text-sm text-muted-foreground">
                       <li className="flex items-start gap-2">
                         <span className="text-foreground mt-1">•</span>
@@ -115,16 +115,16 @@ export default function EventsPage() {
                       <div>
                         <p className="text-sm font-medium text-muted-foreground mb-1">Date</p>
                         <p className="text-foreground font-semibold">23 January 2026</p>
-                      </div>
-                    </div>
+                </div>
+              </div>
 
                     <div className="flex items-start gap-3">
                       <Clock size={20} strokeWidth={1} className="text-foreground flex-shrink-0 mt-0.5" />
                       <div>
                         <p className="text-sm font-medium text-muted-foreground mb-1">Time</p>
                         <p className="text-foreground font-semibold">10:30 AM – 01:30 PM</p>
-                      </div>
-                    </div>
+          </div>
+        </div>
 
                     <div className="flex items-start gap-3">
                       <MapPin size={20} strokeWidth={1} className="text-foreground flex-shrink-0 mt-0.5" />
@@ -133,8 +133,8 @@ export default function EventsPage() {
                         <p className="text-foreground font-semibold">Mini Conference Hall, AB-1</p>
                         <p className="text-foreground font-semibold">VIT Chennai – 600127</p>
                       </div>
-                    </div>
-                  </div>
+                </div>
+                </div>
 
                   {/* Chief Guest */}
                   <div className="pt-4 border-t border-border">
@@ -149,10 +149,10 @@ export default function EventsPage() {
                           <p>Member R&D Committee, Member</p>
                           <p>All India Students Committee, IE(I)</p>
                           <p>Kolkata</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+                </div>
+              </div>
+          </div>
+        </div>
 
                   {/* Audience */}
                   <div className="pt-4 border-t border-border">
@@ -160,8 +160,8 @@ export default function EventsPage() {
                       Open to all VIT Chennai Students
                     </p>
                   </div>
-                </div>
-
+                  </div>
+                  
                 {/* Right: Speaker Image */}
                 <div className="flex items-center justify-center lg:justify-end">
                   <div className="w-full lg:w-auto max-w-md">

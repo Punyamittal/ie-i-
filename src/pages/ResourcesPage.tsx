@@ -15,19 +15,19 @@ import {
 import { cn } from '@/lib/utils';
 
 const downloadables = [
-  { 
+  {
     title: 'Examination Rules & Syllabus (Sections A & B)', 
     description: 'Official syllabus and rules PDF for the AMIE examinations (Section A and Section B). Includes subject structure and exam regulations.',
     type: 'PDF', 
     url: 'https://www.ieindia.org/WebUI/ajax/Downloads/WebUI_PDF/Academics_Pdf/Rules_Syllabi.pdf'
   },
-  { 
+  {
     title: 'Study Material Request Form (Section B)', 
     description: 'Official form for procuring Section B study materials.',
     type: 'PDF', 
     url: 'https://www.ieindia.org/webui/ajax/Downloads/WebUI_PDF/STUDY_MATERIAL_Section_B.pdf?V20210224.1'
   },
-  { 
+  {
     title: 'Section B Registration Application Form', 
     description: 'Form required to register for Section B examination.',
     type: 'PDF', 
@@ -81,14 +81,14 @@ const externalLinks = [
     url: 'https://education.github.com/pack',
     icon: Code
   },
-  { 
+  {
     title: 'Arduino Documentation', 
     subtitle: 'Official Arduino Boards & Embedded Learning',
     description: 'Official documentation for Arduino boards and embedded learning. Great resource for electronics, embedded systems, and IoT projects.',
     url: 'https://www.arduino.cc/en/Guide/HomePage',
     icon: Wrench
   },
-  { 
+  {
     title: 'SWAYAM', 
     subtitle: 'Government Online Learning Platform',
     description: 'Indian government MOOC portal covering engineering and more. Offers free online courses across technical, academic, and skill sectors.',

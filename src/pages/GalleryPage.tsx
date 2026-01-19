@@ -14,15 +14,15 @@ export default function GalleryPage() {
       {/* Coming Soon Section */}
       <section className="py-24 bg-background">
         <div className="container mx-auto px-6">
-          <div
+              <div
             ref={comingSoonRef}
-            className={cn(
+                className={cn(
               'flex items-center justify-center min-h-[60vh] transition-all duration-700',
               comingSoonVisible
-                ? 'opacity-100 translate-y-0'
-                : 'opacity-0 translate-y-8'
-            )}
-          >
+                    ? 'opacity-100 translate-y-0'
+                    : 'opacity-0 translate-y-8'
+                )}
+              >
             <h2 className="text-4xl md:text-6xl font-bold tracking-tight text-center text-foreground">
               Coming Soon..
             </h2>

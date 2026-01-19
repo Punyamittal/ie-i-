@@ -33,7 +33,7 @@ interface TeamMember {
 const allTeamMembers: TeamMember[] = [
   // Faculty Coordinators (First)
   { 
-    name: 'S. Vigneshwari', 
+    name: 'Dr. S. Vigneshwari', 
     role: 'Faculty Coordinator', 
     department: 'Faculty',
     description: 'Facilitating communication between students and faculty.',
