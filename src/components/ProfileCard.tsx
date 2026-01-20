@@ -9,6 +9,7 @@ export interface ProfileCardProps {
   imageAlt?: string;
   linkedinUrl?: string;
   className?: string;
+  imagePosition?: 'top' | 'center' | 'high';
 }
 
 export function ProfileCard({
@@ -20,6 +21,7 @@ export function ProfileCard({
   imageAlt,
   linkedinUrl,
   className,
+  imagePosition = 'center',
 }: ProfileCardProps) {
   // Generate gradient based on name initials for consistent placeholder
   const getGradientColors = (name: string) => {
@@ -33,10 +35,23 @@ export function ProfileCard({
 
   const gradient = getGradientColors(name);
 
+  // Determine object-position based on imagePosition prop
+  const getObjectPosition = () => {
+    switch (imagePosition) {
+      case 'top':
+        return 'center 15%';
+      case 'high':
+        return 'center 30%';
+      case 'center':
+      default:
+        return 'center 25%';
+    }
+  };
+
   const cardContent = (
     <div
       className={cn(
-        'group relative flex flex-col h-full min-h-[500px]',
+        'group relative flex flex-col h-full min-h-[380px]',
         'bg-card border border-border/50 rounded-lg',
         'overflow-hidden',
         'transition-all duration-300 ease-out',
@@ -48,13 +63,13 @@ export function ProfileCard({
       )}
     >
       {/* Top Image Section */}
-      <div className="relative w-full h-48 overflow-hidden rounded-t-lg">
+      <div className="relative w-full aspect-[3/4] overflow-hidden rounded-t-lg bg-secondary/20">
         {imageUrl ? (
           <img
             src={imageUrl}
             alt={imageAlt || name}
-            className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
-            style={{ objectPosition: 'center center' }}
+            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+            style={{ objectPosition: getObjectPosition() }}
           />
         ) : (
           <div
@@ -81,7 +96,7 @@ export function ProfileCard({
       </div>
 
       {/* Content Section */}
-      <div className="flex flex-col flex-1 p-6 space-y-4">
+      <div className="flex flex-col flex-1 p-5 space-y-3">
         {/* Name - Bold, White Text */}
         <h3 className="text-xl font-bold text-foreground leading-tight font-inter">
           {name}

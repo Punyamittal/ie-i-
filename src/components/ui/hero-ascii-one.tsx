@@ -173,18 +173,24 @@ export default function HeroAsciiOne() {
         <div className="w-full lg:w-1/2 px-6 lg:px-16 lg:pr-[10%]">
           <div className="max-w-lg relative lg:ml-auto">
             {/* Top decorative line */}
-            <div className="flex items-center gap-2 mb-3 opacity-60">
+            <div className="flex items-center gap-2 mb-3 mt-8 lg:mt-12 opacity-60">
               <div className="w-8 h-px bg-white"></div>
               <span className="text-white text-[10px] font-mono tracking-wider">∞</span>
               <div className="flex-1 h-px bg-white"></div>
             </div>
 
-            {/* Campus label */}
-            <div className="mb-4 lg:mb-6">
-              <h2 className="text-white font-mono font-semibold tracking-[0.35em] text-base lg:text-xl uppercase">
-                VIT CHENNAI
-              </h2>
-              <div className="mt-2 h-px w-24 bg-white/40" />
+            {/* VIT Chennai Badge with Logo */}
+            <div className="mb-4 lg:mb-6 mt-8 lg:mt-12">
+              <div className="flex items-center gap-3 lg:gap-4">
+                <img 
+                  src="/vitl1.png" 
+                  alt="VIT Chennai Logo" 
+                  className="h-14 lg:h-20 w-auto object-contain"
+                />
+                <h2 className="text-white font-mono font-semibold tracking-[0.2em] text-lg lg:text-2xl uppercase opacity-90">
+                  VIT CHENNAI
+                </h2>
+              </div>
             </div>
 
             {/* Title with dithered accent */}

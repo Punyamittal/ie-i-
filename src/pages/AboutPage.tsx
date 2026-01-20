@@ -23,6 +23,7 @@ interface TeamMember {
   tags?: string[];
   imageUrl?: string;
   linkedinUrl?: string;
+  imagePosition?: 'top' | 'center' | 'high';
 }
 
 // All team members in a single array, ordered as requested:
@@ -56,6 +57,7 @@ const allTeamMembers: TeamMember[] = [
     tags: ['Leadership', 'Strategy', 'Management'],
     imageUrl: '/chairperson.png',
     linkedinUrl: 'https://www.linkedin.com/in/ayushdevai/',
+    imagePosition: 'top' as const,
   },
   { 
     name: 'Amrithesh S Menon', 
@@ -238,17 +240,24 @@ export default function AboutPage() {
               )}
             >
               <div className="mb-6">
-                <h2 className="text-white font-mono font-semibold tracking-[0.35em] text-base md:text-xl uppercase">
-                  <DecryptedText
-                    text="VIT CHENNAI"
-                    animateOn="view"
-                    revealDirection="center"
-                    speed={40}
-                    maxIterations={18}
-                    className="text-white"
-                    encryptedClassName="text-white/40"
+                <div className="flex items-center gap-3 md:gap-4 mb-4">
+                  <img 
+                    src="/vitl1.png" 
+                    alt="VIT Chennai Logo" 
+                    className="h-12 md:h-16 lg:h-20 w-auto object-contain"
                   />
-                </h2>
+                  <h2 className="text-white font-mono font-semibold tracking-[0.2em] text-lg md:text-2xl lg:text-3xl uppercase">
+                    <DecryptedText
+                      text="VIT CHENNAI"
+                      animateOn="view"
+                      revealDirection="center"
+                      speed={40}
+                      maxIterations={18}
+                      className="text-white"
+                      encryptedClassName="text-white/40"
+                    />
+                  </h2>
+                </div>
                 <p className="text-white/70 mt-2 text-sm md:text-base leading-relaxed">
                   Transforming life through excellence in education and research.
                 </p>
@@ -386,6 +395,7 @@ export default function AboutPage() {
                   imageUrl={member.imageUrl}
                   imageAlt={`${member.name} - ${member.role}`}
                   linkedinUrl={member.linkedinUrl}
+                  imagePosition={member.imagePosition}
                 />
               </div>
             ))}

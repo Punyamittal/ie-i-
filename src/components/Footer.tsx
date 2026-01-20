@@ -93,9 +93,9 @@ export function Footer() {
         {/* Bottom Bar */}
         <div className="mt-16 pt-8 border-t border-primary-foreground/10">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4 mb-4">
-            <p className="text-primary-foreground/50 text-sm">
-              © {new Date().getFullYear()} The Institution of Engineers (India). All rights reserved.
-            </p>
+          <p className="text-primary-foreground/50 text-sm">
+            © {new Date().getFullYear()} The Institution of Engineers (India). All rights reserved.
+          </p>
           </div>
           
           {/* Credits */}
