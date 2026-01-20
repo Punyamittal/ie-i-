@@ -93,6 +93,15 @@ export default function MinimalHero() {
 
   return (
     <section className="minimal-root">
+      {/* Preload GIF as hidden img for faster loading */}
+      <img
+        src="/xy.gif"
+        alt=""
+        className="hidden"
+        loading="eager"
+        fetchPriority="high"
+        aria-hidden="true"
+      />
       {/* Background GIF - only on black background */}
       <div 
         className="absolute inset-0 w-full h-full z-0"

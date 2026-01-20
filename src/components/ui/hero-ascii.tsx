@@ -123,6 +123,15 @@ export default function HeroAscii() {
 
   return (
     <main className="relative min-h-screen overflow-hidden bg-black">
+      {/* Preload GIF as hidden img for faster loading */}
+      <img
+        src="/prism.gif"
+        alt=""
+        className="hidden"
+        loading="eager"
+        fetchPriority="high"
+        aria-hidden="true"
+      />
       {/* Background GIF - only on black background */}
       <div 
         className="absolute inset-0 w-full h-full bg-black z-0"
