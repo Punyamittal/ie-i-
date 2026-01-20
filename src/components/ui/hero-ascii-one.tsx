@@ -179,6 +179,14 @@ export default function HeroAsciiOne() {
               <div className="flex-1 h-px bg-white"></div>
             </div>
 
+            {/* Campus label */}
+            <div className="mb-4 lg:mb-6">
+              <h2 className="text-white font-mono font-semibold tracking-[0.35em] text-base lg:text-xl uppercase">
+                VIT CHENNAI
+              </h2>
+              <div className="mt-2 h-px w-24 bg-white/40" />
+            </div>
+
             {/* Title with dithered accent */}
             <div className="relative">
               <div className="hidden lg:block absolute -right-3 top-0 bottom-0 w-1 dither-pattern opacity-40"></div>
@@ -225,7 +233,7 @@ export default function HeroAsciiOne() {
             {/* Description with subtle grid pattern */}
             <div className="relative">
               <p className="text-xs lg:text-base text-gray-300 mb-5 lg:mb-6 leading-relaxed font-mono opacity-80">
-                Empowering engineering students with knowledge, skills, and opportunities to excel. We bridge the gap between academic learning and industry practices, fostering innovation and continuous growth.
+                Empowering engineering students at VIT Chennai with knowledge, skills, and opportunities to excel. We bridge the gap between academic learning and industry practices, fostering innovation and continuous growth.
               </p>
               
               {/* Technical corner accent - desktop only */}

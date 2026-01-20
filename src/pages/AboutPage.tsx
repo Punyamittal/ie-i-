@@ -237,6 +237,22 @@ export default function AboutPage() {
                 heroVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'
               )}
             >
+              <div className="mb-6">
+                <h2 className="text-white font-mono font-semibold tracking-[0.35em] text-base md:text-xl uppercase">
+                  <DecryptedText
+                    text="VIT CHENNAI"
+                    animateOn="view"
+                    revealDirection="center"
+                    speed={40}
+                    maxIterations={18}
+                    className="text-white"
+                    encryptedClassName="text-white/40"
+                  />
+                </h2>
+                <p className="text-white/70 mt-2 text-sm md:text-base leading-relaxed">
+                  Transforming life through excellence in education and research.
+                </p>
+              </div>
               <h1 className="text-4xl md:text-6xl font-bold text-white tracking-tight mb-6">
                 <DecryptedText
                   text="About Us"

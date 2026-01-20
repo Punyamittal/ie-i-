@@ -172,6 +172,14 @@ export default function HeroAscii() {
               <div className="flex-1 h-px bg-white"></div>
             </div>
 
+            {/* Campus label */}
+            <div className="mb-4 lg:mb-6">
+              <h2 className="text-white font-mono font-semibold tracking-[0.35em] text-base lg:text-xl uppercase">
+                VIT CHENNAI
+              </h2>
+              <div className="mt-2 h-px w-24 bg-white/40" />
+            </div>
+
             {/* Title with dithered accent */}
             <div className="relative">
               <div className="hidden lg:block absolute -left-3 top-0 bottom-0 w-1 dither-pattern opacity-40"></div>
